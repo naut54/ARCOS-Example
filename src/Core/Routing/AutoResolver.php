@@ -89,6 +89,7 @@ class AutoResolver
                     $uri,
                     $className,
                     $method->getName(),
+                    source: 'auto'
                 );
             }
         }
