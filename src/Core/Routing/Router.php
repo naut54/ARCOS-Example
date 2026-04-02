@@ -116,7 +116,7 @@ class Router
         $this->currentSubdomain = $previous;
     }
 
-    public function add(string $method, string $uri, string $controller, string $action): void
+    public function add(string $method, string $uri, string $controller, string $action, string $source = 'explicit'): void
     {
         if ($this->currentSubdomain === null) {
             throw new LogicException(
@@ -131,6 +131,7 @@ class Router
             'controller' => $controller,
             'action'     => $action,
             'subdomain'  => $this->currentSubdomain,
+            'source'     => $source
         ];
     }
 
@@ -212,6 +213,98 @@ class Router
         }
 
         return $uriMatch ? ['_error' => 405] : null;
+    }
+
+    // Dumping
+
+    public function dumpRoutes(): array
+    {
+        $output = [];
+
+        foreach ($this->routes as $route) {
+            $subdomain = $route['subdomain'];
+            $method    = $route['method'];
+            $uri       = $route['uri'];
+            $context   = "route [{$method} {$uri}]";
+
+            $middleware = [];
+
+            // Layer 1 — global
+            foreach ($this->globalMiddleware as $link) {
+                $middleware[] = $this->serializeLink($link, 'global');
+            }
+
+            // Layer 2 — subdomain groups, expanded in order
+            $subdomainContext = $this->subdomainContexts[$subdomain];
+
+            foreach ($subdomainContext->middlewareGroups as $groupName) {
+                if (!isset($this->groups[$groupName])) {
+                    // Group not defined yet — skip silently; boot() would have caught this
+                    // for the active subdomain, but other subdomains are not validated at boot.
+                    continue;
+                }
+
+                foreach ($this->groups[$groupName]->links as $link) {
+                    $middleware[] = $this->serializeLink($link, 'subdomain_group');
+                }
+            }
+
+            // Layer 3 — per-route entries, expanded (MiddlewareGroup refs resolved inline)
+            $perRouteEntries = $this->middleware[$method][$uri] ?? [];
+            $perRouteLinks   = $this->expandLinks($perRouteEntries, $context);
+
+            foreach ($perRouteLinks as $link) {
+                $middleware[] = $this->serializeLink($link, 'per_route');
+            }
+
+            $output[] = [
+                'method'     => $method,
+                'uri'        => $uri,
+                'controller' => $route['controller'],
+                'action'     => $route['action'],
+                'subdomain'  => $subdomain,
+                'source'     => $route['source'] ?? 'explicit',
+                'middleware' => $middleware,
+            ];
+        }
+
+        return $output;
+    }
+
+    public function dumpGroups(): array
+    {
+        $output = [];
+
+        foreach ($this->groups as $name => $group) {
+            $links = [];
+
+            foreach ($group->links as $link) {
+                $links[] = [
+                    'class'       => $link->middleware,
+                    'isMandatory' => $link->isMandatory,
+                    'isSkippable' => $link->isSkippable,
+                    'name'        => $link->name,
+                ];
+            }
+
+            $output[$name] = [
+                'name'  => $name,
+                'links' => $links,
+            ];
+        }
+
+        return $output;
+    }
+
+    private function serializeLink(MiddlewareLink $link, string $layer): array
+    {
+        return [
+            'class'       => $link->middleware,
+            'isMandatory' => $link->isMandatory,
+            'isSkippable' => $link->isSkippable,
+            'name'        => $link->name,
+            'layer'       => $layer,
+        ];
     }
 
     // Chain construction

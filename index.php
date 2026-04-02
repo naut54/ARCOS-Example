@@ -12,11 +12,11 @@ use App\Middleware\LoggerMiddleware;
 use App\Middleware\VerbValidationMiddleware;
 use App\Services\InventoryService;
 
-// ─── Autoloader ───────────────────────────────────────────────────────────────
+// Autoloader ──────
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-// ─── Environment ──────────────────────────────────────────────────────────────
+// Environment ─────
 
 $env = parse_ini_file(__DIR__ . '/.env');
 
@@ -38,7 +38,7 @@ foreach ($env as $key => $value) {
     $_ENV[$key] = $value;
 }
 
-// ─── Container ────────────────────────────────────────────────────────────────
+// Container ───────
 
 $container = new Container();
 
@@ -52,7 +52,7 @@ $container->singleton(LoggerMiddleware::class, fn($c) => new LoggerMiddleware())
 
 $container->bind(VerbValidationMiddleware::class, fn($c) => new VerbValidationMiddleware());
 
-// ─── Router ───────────────────────────────────────────────────────────────────
+// Router ──────────
 
 $router = new Router();
 
@@ -81,7 +81,8 @@ $router->boot(__DIR__);
 
 // ─── Kernel ───────────────────────────────────────────────────────────────────
 
-$kernel  = new Kernel($container, $router);
-$request = Request::fromGlobals($router->activeResolver());
-
-$kernel->handle($request);
+if (empty($_SERVER['ARCOS_INSPECT'])) {
+    $kernel  = new Kernel($container, $router);
+    $request = Request::fromGlobals($router->activeResolver());
+    $kernel->handle($request);
+}
