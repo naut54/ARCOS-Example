@@ -10,6 +10,7 @@ class ComposerStaticInit97bedc3eb53120d0910611c0c00f577c
         'A' =>
         array (
             'Arcos\\Tests\\' => 12,
+            'Arcos\\Cli\\' => 10,
             'Arcos\\' => 6,
             'App\\' => 4,
         ),
@@ -19,6 +20,10 @@ class ComposerStaticInit97bedc3eb53120d0910611c0c00f577c
         'Arcos\\Tests\\' =>
         array (
             0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'Arcos\\Cli\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/spire/arcos-cli/src',
         ),
         'Arcos\\' =>
         array (

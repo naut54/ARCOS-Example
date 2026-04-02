@@ -1,11 +1,22 @@
 {
-  "name": "arcos/arcos",
+  "name": "spire/arcos",
   "description": "API Routing Core Orchestrator System — a PHP framework for building APIs",
   "type": "project",
   "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "php": ">=8.3"
   },
+  "require-dev": {
+    "spire/arcos-cli": "*"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./cli"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Arcos\\": "src/",

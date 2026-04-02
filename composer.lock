@@ -4,13 +4,43 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97bedc3eb53120d0910611c0c00f577c",
+    "content-hash": "d56d81a94949cb2e78b6c2ecfd2dee14",
     "packages": [],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "spire/arcos-cli",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./cli",
+                "reference": "4b133a2115e08e7664e29ec7f4539b66bda1157b"
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "bin": [
+                "bin/arcos",
+                "bin/arcos.bat"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arcos\\Cli\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "ARCOS CLI - developer tooling for ARCOS projects",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {},
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=8.3"

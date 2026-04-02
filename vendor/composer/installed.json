@@ -1,5 +1,40 @@
 {
-    "packages": [],
+    "packages": [
+        {
+            "name": "spire/arcos-cli",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./cli",
+                "reference": "4b133a2115e08e7664e29ec7f4539b66bda1157b"
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "bin": [
+                "bin/arcos",
+                "bin/arcos.bat"
+            ],
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Arcos\\Cli\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "ARCOS CLI - developer tooling for ARCOS projects",
+            "transport-options": {
+                "relative": true
+            },
+            "install-path": "../spire/arcos-cli"
+        }
+    ],
     "dev": true,
-    "dev-package-names": []
+    "dev-package-names": [
+        "spire/arcos-cli"
+    ]
 }
