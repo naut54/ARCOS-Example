@@ -1,5 +1,5 @@
 {
-  "name": "spire/arcos",
+  "name": "pylon/arcos",
   "description": "API Routing Core Orchestrator System — a PHP framework for building APIs",
   "type": "project",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "php": ">=8.3"
   },
   "require-dev": {
-    "spire/arcos-cli": "*"
+    "pylon/arcos-cli": "*"
   },
   "repositories": [
     {

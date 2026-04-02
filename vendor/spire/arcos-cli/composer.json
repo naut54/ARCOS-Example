@@ -1,5 +1,5 @@
 {
-  "name": "spire/arcos-cli",
+  "name": "pylon/arcos-cli",
   "description": "ARCOS CLI - developer tooling for ARCOS projects",
   "type": "library",
   "license": "MIT",

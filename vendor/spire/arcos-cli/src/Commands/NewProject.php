@@ -149,7 +149,7 @@ class NewProject extends Command
         $slug    = strtolower(preg_replace('/[^a-z0-9-]/i', '-', $projectName));
         $require = $isLite
             ? '"php": ">=8.3"'
-            : '"php": ">=8.3",' . PHP_EOL . '        "spire/arcos": "^1.0"';
+            : '"php": ">=8.3",' . PHP_EOL . '        "pylon/arcos": "^1.0"';
 
         return <<<JSON
         {
