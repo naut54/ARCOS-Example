@@ -4,16 +4,16 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d56d81a94949cb2e78b6c2ecfd2dee14",
+    "content-hash": "d0718429637543f65eb3e999f3329d74",
     "packages": [],
     "packages-dev": [
         {
-            "name": "spire/arcos-cli",
+            "name": "pylon/arcos-cli",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "./cli",
-                "reference": "4b133a2115e08e7664e29ec7f4539b66bda1157b"
+                "reference": "856567e6efa137b391337fae94bbbcad18705546"
             },
             "require": {
                 "php": ">=8.3"

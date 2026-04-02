@@ -23,7 +23,7 @@ class ComposerStaticInit97bedc3eb53120d0910611c0c00f577c
         ),
         'Arcos\\Cli\\' =>
         array (
-            0 => __DIR__ . '/..' . '/spire/arcos-cli/src',
+            0 => __DIR__ . '/..' . '/pylon/arcos-cli/src',
         ),
         'Arcos\\' =>
         array (

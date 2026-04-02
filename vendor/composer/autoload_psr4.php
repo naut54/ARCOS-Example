@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Arcos\\Tests\\' => array($baseDir . '/tests'),
-    'Arcos\\Cli\\' => array($vendorDir . '/spire/arcos-cli/src'),
+    'Arcos\\Cli\\' => array($vendorDir . '/pylon/arcos-cli/src'),
     'Arcos\\' => array($baseDir . '/src'),
     'App\\' => array($baseDir . '/app'),
 );

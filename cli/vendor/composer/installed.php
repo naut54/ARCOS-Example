@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'arcos/cli',
+        'name' => 'pylon/arcos-cli',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'afa1501504ed0fbd28270e974c35db6718c23912',
+        'reference' => '04f0c49e25c4fb17b22410cb6404ba4ec01d0b42',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'arcos/cli' => array(
+        'pylon/arcos-cli' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'afa1501504ed0fbd28270e974c35db6718c23912',
+            'reference' => '04f0c49e25c4fb17b22410cb6404ba4ec01d0b42',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

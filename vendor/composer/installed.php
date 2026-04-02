@@ -1,30 +1,30 @@
 <?php return array(
     'root' => array(
-        'name' => 'spire/arcos',
+        'name' => 'pylon/arcos',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'afa1501504ed0fbd28270e974c35db6718c23912',
+        'reference' => '04f0c49e25c4fb17b22410cb6404ba4ec01d0b42',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'spire/arcos' => array(
+        'pylon/arcos' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'afa1501504ed0fbd28270e974c35db6718c23912',
+            'reference' => '04f0c49e25c4fb17b22410cb6404ba4ec01d0b42',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'spire/arcos-cli' => array(
+        'pylon/arcos-cli' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '4b133a2115e08e7664e29ec7f4539b66bda1157b',
+            'reference' => '856567e6efa137b391337fae94bbbcad18705546',
             'type' => 'library',
-            'install_path' => __DIR__ . '/../spire/arcos-cli',
+            'install_path' => __DIR__ . '/../pylon/arcos-cli',
             'aliases' => array(),
             'dev_requirement' => true,
         ),

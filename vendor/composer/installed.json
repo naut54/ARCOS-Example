@@ -1,13 +1,13 @@
 {
     "packages": [
         {
-            "name": "spire/arcos-cli",
+            "name": "pylon/arcos-cli",
             "version": "dev-master",
             "version_normalized": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "./cli",
-                "reference": "4b133a2115e08e7664e29ec7f4539b66bda1157b"
+                "reference": "856567e6efa137b391337fae94bbbcad18705546"
             },
             "require": {
                 "php": ">=8.3"
@@ -30,11 +30,11 @@
             "transport-options": {
                 "relative": true
             },
-            "install-path": "../spire/arcos-cli"
+            "install-path": "../pylon/arcos-cli"
         }
     ],
     "dev": true,
     "dev-package-names": [
-        "spire/arcos-cli"
+        "pylon/arcos-cli"
     ]
 }
